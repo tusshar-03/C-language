@@ -1,1 +1,178 @@
-n
+#include<stdio.h>
+void H(int,int);
+void A(int,int);
+void P(int,int);
+void Y(int,int);
+void Space(int,int);
+void N(int,int);
+void E(int,int);
+void W(int,int);
+void R(int,int);
+
+int ch='#';
+int n=5;  //n: You can change Text Size
+// If your screen is capable to show sentence in a single line
+int x,m=14;  //m: no. of letters
+
+int main()
+{
+    int w,r,c,z=1;
+    printf("\n");
+    if(n%2==0)
+        x=n-1;
+    else
+        x=n;
+
+    for(r=1; r<=x; r++)
+    {
+        for(w=z; w<=m; w++)
+        {
+            for(c=1; c<=n; c++)
+            {
+                switch (w)
+                {
+                case 1:
+                    H(r,c);
+                    break;
+                case 2:
+                case 13:
+                    A(r,c);
+                    break;
+                case 3:
+                case 4:
+                    P(r,c);
+                    break;
+                case 5:
+                case 11:
+                    Y(r,c);
+                    break;
+                case 6:
+                case 10:
+                    Space(r,c);
+                    break;
+                case 7:
+                    N(r,c);
+                    break;
+                case 8:
+                case 12:
+                    E(r,c);
+                    break;
+                case 9:
+                    W(r,c);
+                    break;
+                case 14:
+                    R(r,c);
+                    break;
+                }
+            }
+            for(int i=1; i<=(n/3); i++)
+                printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+void H(int r,int c)
+{
+    if(r==(n+1)/2)
+        printf("%c",ch);
+    else
+    {
+        if(c==1||c==n)
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void A(int r,int c)
+{
+    if(r==(n+1)/2||r==1)
+        printf("%c",ch);
+    else
+    {
+        if(c==1||c==n)
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void P(int r,int c)
+{
+    if(r==(n+1)/2||r==1)
+        printf("%c",ch);
+    else
+    {
+        if(c==1||(c==n && r<=(n-1)/2))
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void Y(int r,int c)
+{
+    if((r<=(n+1)/2)&&(c<=(n+1)/2)&&r==c || (r>=(n+1)/2)&&c==(n+1)/2 || ((r<=(n+1)/2)&&(c>=(n+1)/2)&&(r+c==n+1)))
+        printf("%c",ch);
+    else
+        printf(" ");
+}
+
+void Space(int r,int c)
+{
+    printf(" ");
+}
+
+void N(int r,int c)
+{
+    if(r==c)
+        printf("%c",ch);
+    else
+    {
+        if(c==1||c==n)
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void E(int r,int c)
+{
+    if(r==(n+1)/2||r==1||r==x)
+        printf("%c",ch);
+    else
+    {
+        if(c==1)
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void W(int r,int c)
+{
+    if((r>=(n+1)/2)&&(c<=(n+1)/2)&&(r+c==n+1)||((r>=(n+1)/2)&&(c>=(n+1)/2)&&r==c))
+        printf("%c",ch);
+    else
+    {
+        if(c==1||c==n)
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
+
+void R(int r,int c)
+{
+    if(r==(n+1)/2||r==1||(r==c)&&(r>=(n+1)/2)&&(c>=(n+1)/2))
+        printf("%c",ch);
+    else
+    {
+        if(c==1||(c==n && r<=(n-1)/2))
+            printf("%c",ch);
+        else
+            printf(" ");
+    }
+}
